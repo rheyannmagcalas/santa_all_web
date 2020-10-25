@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row mt-4 pt-4">
+        <div class="col-5"> 
+            <img src="{% static 'logo/santa.jpg' %}" width='470' height='300'> 
+        </div> 
+        <div class="col-7 mt-4"> 
+            <div class="ml-4 mt-4">
+            Christmas is coming and we haven't caught up with all the people we would want to give our heart-felt gifts. 
+            We don’t know much about our loved ones' new-found hobbies or what takes most of their time lately. Are there 
+            plantito and planittas now? And with the continuous boom of online shopping comes more and more data we have of 
+            everyone’s purchase. So why not capitalize on this data? One of its useful uses is having a gift/ product 
+            recommender system just like how Spotify gifts it’s user of “Discover weekly” playlist, e-commerce platforms can 
+            provide appropriate, creative and useful products for everyone to have esp. In these hard times. 
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-4">
+        <div class="col-12"> 
+            <input type="text" placeholder="Your Wishlist URL"></input>
+            <button type="button" class="btn btn-success">ADD WISHLIST</button>
+            <br><br><br>
+            <table id="table_id" class="display mt-4">
+                <thead>
+                    <tr>
+                        <th>Wishlist URL</th>
+                        <th>Date Added</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div> 
+    </div>
+  </div>
+
+  
+{% endblock %}
+

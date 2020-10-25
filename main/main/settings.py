@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'documentation'
 ]
 
 MIDDLEWARE = [
@@ -123,8 +124,7 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
 ]
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home' 
+LOGIN_REDIRECT_URL = '/wishlist'
+LOGOUT_REDIRECT_URL = '/accounts/login' 
