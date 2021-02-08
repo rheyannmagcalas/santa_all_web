@@ -2,8 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Secret Santa</title>
+  <title>SANTA ALL</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     html {
       min-height: 100%;
@@ -72,6 +73,17 @@
       .count-particles{ 
         border-radius: 0 0 3px 3px; 
       }
+      body{
+        font-family: Arial, Helvetica, sans-serif !important;
+      }
+
+      .fa-google {
+        background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
   </style>
 </head>
 <body>
@@ -79,26 +91,50 @@
     <div class="row">
       <div class="col-lg-6 col-sm-12" style="padding-left:0; min-height: 100vh;">
         <div id="home" class="jumbotron jumbotron-register">
-          <div id="particles-js"><canvas class="particles-js-canvas-el" width="1409" height="456" style="width: 100%; height: 100%;"></canvas></div><!-- /.particles div -->
+          <div id="particles-js">
+            <canvas class="particles-js-canvas-el" width="1409" height="456" style="width: 100%; height: 100%;"></canvas>
+          </div>
           <div class="container center-vertically-holder">
           </div>
         </div>
       </div>
   
-      <div class="col-lg-5 col-sm-12 ml-4" style="margin-top:10%;">
+      <div class="col-lg-5 col-sm-12 ml-4" style="margin-top:5%;">
         <div style="margin-left:10%">
-          <img src="{% static 'logo/secret_santa.png' %}" width='300' height='200'>
-          <div style="margin-left:15%">
-            <h1 class="mt-2">SECRET SANTA</h1>
+          <div class="row">
+            <div class='col-1'></div>
+            <div class='col-3'>
+              <img src="{% static 'images/santa_all_logo_2.png' %}" width='400' height='150' >
+            </div>
+            <!-- <div class='col-6 ml-4' style="margin-top: 17%;">
+              <h2 class="mt-2 ml-4" style="color:#dc3545; font-weight: 700;">SANTA ALL</h2>
+            </div> -->
+          </div>
+          
+          <br>
+          <div style="border-style: groove; border-radius: 4px;padding: 20px 26px !important;
+          border: 1px #ddd solid;">
+            <center>
             <form method="post">
+              <h5 class="mt-4 mb-4">LOGIN TO YOUR ACCOUNT</h5>
+              <button type="button" class="btn btn-outline-secondary col-8 mb-2">
+                <i class="fa fa-google" aria-hidden="true"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Log in with Google</button>
+                <button type="button" class="btn btn-outline-secondary col-8 mb-4">
+                  <i class="fa fa-facebook-f"></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Log in with Facebook</button>  
               {% csrf_token %}
               {{ form.as_p }}
               
-              <button type="submit" class="btn btn-success col-8">Log In</button>
-              <a href="/wishlist/register" class="btn btn-success col-8 mt-2">SIGN UP</a>
-              <br><br>
-              <a href="/wishlist/forgot-password" class="col-12" style="margin-left:16%;">Forgot Password</a>
+              <button type="submit" class="btn btn-success col-8">
+                Log In</button>
+              <!-- <a href="/wishlist/register" class="btn btn-success col-8 mt-2">SIGN UP</a> -->
+              
             </form>
+            </center>
+            <a href="/wishlist/forgot-password" class="col-12" style="margin-left:15%;font-size:12px">Forgot Password?</a>
           </div>
         </div>
       </div>

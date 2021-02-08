@@ -2,42 +2,398 @@
 {% load static %}
 
 {% block content %}
-  <div class="container">
-    <div class="row mt-4 pt-4">
-        <div class="col-5"> 
-            <img src="{% static 'logo/santa.jpg' %}" width='470' height='300'> 
+  <div class="container-fluid" >
+    <div class="row mt-4 pb-4">
+        <div class="col-12 pb-4 ml-4">
+            <div class="row ml-4">
+                <div class="col-7">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                          <li data-target="#demo" data-slide-to="0" class="active"></li>
+                          <li data-target="#demo" data-slide-to="1"></li>
+                          <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+                      
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="{% static 'images/dashboard_banner_3.png' %}" width='800' height='500' class=>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'images/dashboard_banner_4.png' %}" width='800' height='500'>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'images/dashboard_banner_5.png' %}" width='800' height='500'>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'images/dashboard_banner_6.png' %}" width='800' height='500'>
+                          </div>
+                        </div>
+                      
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                        </a>
+                      
+                      </div>
+                </div>
+                <div class="col-4 ml-4">
+                    <img src="{% static 'images/home_page.png' %}" width='425' height='165' class='image-home'> 
+
+                    <img src="{% static 'images/mywishlist.png' %}" width='425' height='165' class='image-wishlist'> 
+
+                    <img src="{% static 'images/friends_wishlist.png' %}" width='425' height='165' class='image-friends-wishlist'> 
+                </div>
+            </div>
         </div> 
-        <div class="col-7 mt-4"> 
-            <div class="ml-4 mt-4">
-            Christmas is coming and we haven't caught up with all the people we would want to give our heart-felt gifts. 
-            We don’t know much about our loved ones' new-found hobbies or what takes most of their time lately. Are there 
-            plantito and planittas now? And with the continuous boom of online shopping comes more and more data we have of 
-            everyone’s purchase. So why not capitalize on this data? One of its useful uses is having a gift/ product 
-            recommender system just like how Spotify gifts it’s user of “Discover weekly” playlist, e-commerce platforms can 
-            provide appropriate, creative and useful products for everyone to have esp. In these hard times. 
+        
+    </div>
+  </div>
+
+  <div class="container-fluid" id="div-home">
+    <div class="row pb-4 ml-4">
+        <div class="col-8 ml-4">
+            <form>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                  <div class="input-group-btn">
+                    <button class="btn btn-success form-control" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+            </form> 
+        </div>
+        <div class="col-2">
+            <div class="row">
+                <button type="button" class="btn btn-outline-dark col-5 pt-2 pb-2 mr-2">
+                    <i class="fa fa-list" aria-hidden="true" style="font-size:19px"></i>
+                </button>
+                <button type="button" class="btn btn-outline-dark col-5 pt-2 pb-2">
+                    <i class="fa fa-rub" aria-hidden="true" style="font-size:19px"></i>
+                </button>
             </div>
         </div>
+
     </div>
-    <hr>
-    <div class="row mt-4">
-        <div class="col-12"> 
-            <input type="text" placeholder="Your Wishlist URL"></input>
-            <button type="button" class="btn btn-success">ADD WISHLIST</button>
-            <br><br><br>
-            <table id="table_id" class="display mt-4">
+    
+
+    <div class="row mt-4 pb-4 ml-4">
+        <div class="col-12 ml-4">
+            <h4>Categories</h4>
+            <hr>
+        </div>
+        <div class="col-2 mt-4 mr-4 categories ml-4"> 
+            <img src="{% static 'images/bye_bye_corona.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/sana_all.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/baka_naman.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/plantito.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/awra.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories ml-4"> 
+            <img src="{% static 'images/inaanak.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/balik_alindog.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/mamshies.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/artista.png' %}" width='235' height='240'> 
+        </div> 
+        <div class="col-2 mt-4 mr-4 categories"> 
+            <img src="{% static 'images/driver.png' %}" width='235' height='240'> 
+        </div> 
+    </div>
+
+    <div class="row mt-4 pb-4 ml-2 pl-2">
+        <div class="col-12 ml-4 pl-4 mb-4">
+            <img src="{% static 'images/gifts_100.png' %}" width='1250' height='150'> 
+        </div>
+
+        <div class="col-12 ml-4 pl-4 mt-4">
+            <img src="{% static 'images/gifts_500.png' %}" width='1250' height='150'> 
+        </div>
+
+        <div class="col-12 ml-4 pl-4 mt-4">
+            <img src="{% static 'images/gifts_discount.png' %}" width='1250' height='150'> 
+        </div>
+    </div>
+  </div>
+
+  <div class="container-fluid ml-4 d-none" id="div-my-wishlist">
+    <div class="row mb-4">
+        <div class="col-9 ml-4">
+            <h4 class="ml-4">MY WISHLIST</h4>
+        </div>
+        
+        <div class="col-2">    
+            <select class="form-control" id="visibility" name="visibility">
+                <option>Share to Community</option>
+                <option>Share to Everyone</option>
+                <option selected>Only Me</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-12"></div>
+    <div class="row ml-4">
+        <div class="col-2">  
+            <button class="btn btn-danger form-control" type="button">
+                Surprise Me
+            </button>
+        </div>
+        <div class="col-5">
+            <div class="input-group mb-4">
+                <input type="text" class="form-control" placeholder="Add To Wishlist" id="my-wishlist-input">
+                <div class="input-group-btn">
+                <button class="btn btn-success form-control" type="button" id="add-wishlist-button">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-2">
+            <h6>Share Your Wishlist:</h6>
+        </div>
+        <div class="col-3 social">    
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+
+        <div class="col-11">
+            <table id="my-wishlist">
                 <thead>
                     <tr>
-                        <th>Wishlist URL</th>
+                        <th>Wishlist</th>
                         <th>Date Added</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
                 </tbody>
             </table>
-        </div> 
+        </div>
     </div>
+    <div class="row pb-4 mt-4 d-none ml-4" id="recommendations-result">
+        <div class="col-12 ml-2">
+            <h6 id="header-recommendations"></h6>
+            <hr>
+        </div>
+        <div class="row" id="wishlist-results">
+        </div>
+    </div>
+  </div>
+
+  <div class="container-fluid d-none ml-4" id="div-friends-wishlist">
+        <div class="row mb-4 ml-4">
+            <div class="col-12">
+                <h3>MY COMMUNITY</h3>
+            </div>
+        </div>
+        
+        <div class="row ml-4">
+            <div class="col-1">
+                <img src="{% static 'images/ran_kid.png' %}" width='100' height='100' style="border-radius: 50%;" class="ran-kid selected-friend"> 
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/dan_kid.jpg' %}" width='100' height='100' style="border-radius: 50%;" class="dan-kid">
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/emer_kid.png' %}" width='100' height='100' style="border-radius: 50%;" class="emer-kid">
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/rob_kid.png' %}" width='100' height='100' style="border-radius: 50%;" class="rob-kid">
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/john_kid.png' %}" width='100' height='100' style="border-radius: 50%;" class="john-kid"> 
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/elissa_kid.png' %}" width='100' height='100' style="border-radius: 50%;" class="elissa-kid"> 
+            </div>
+            <div class="col-1">
+                <img src="{% static 'images/baby_pics/bash.jpg' %}" width='100' height='100' style="border-radius: 50%;" class="bash-kid"> 
+            </div>
+            <div class="col-1" >
+                <div class="circle"><i class="fa fa-plus" aria-hidden="true" style="margin-top:30%;font-size:55px;font-weight:30px;margin-left:32%;"></i>
+                </div>
+            </div>
+            
+            <div class="col-12 mt-4 div-ran">
+                <h4>Your Wishlist Status</h4>
+            </div>
+
+            <div class="col-11 mt-4 div-ran">
+                <table id="your-wishlist">
+                    <thead>
+                        <tr>
+                            <th>Wishlist</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Yoga Mat</td>
+                            <td>
+                                <button type="button" class="btn btn-secondary see-suggestions"><i class="fa fa-spinner" aria-hidden="true"></i>&nbsp;Pending</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Resistance Bands 1</td>
+                            <td>
+                                <button type="button" class="btn btn-warning see-suggestions"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Approve Request</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Resistance Bands 2</td>
+                            <td>
+                                <button type="button" class="btn btn-success see-details"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;For Delivery</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-12 mt-4 div-dan d-none">
+                <h4>Dan's Wishlist (Surprise Me)</h4>
+            </div>
+
+            <!-- <div class="col-12 mt-4 div-dan d-none"> -->
+            <div class="col-8 div-dan d-none">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" id="dan-search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-success form-control" type="button">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 div-dan d-none">
+                <div class="row">
+                    <button type="button" class="btn btn-outline-dark col-5 pt-2 pb-2 mr-2">
+                        <i class="fa fa-list" aria-hidden="true" style="font-size:19px"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-dark col-5 pt-2 pb-2">
+                        <i class="fa fa-rub" aria-hidden="true" style="font-size:19px"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- </div> -->
+
+            <div class="col-12 mt-4 div-emer d-none">
+                <h4>Emer's Wishlist</h4>
+            </div>
+
+            <div class="col-11 mt-4 div-emer d-none">
+                <table id="emer-wishlist">
+                    <thead>
+                        <tr>
+                            <th>Wishlist</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gaming Mouse</td>
+                            <td>
+                                <button type="button" class="btn btn-info see-suggestions"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Send Gift</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gaming Keyboard</td>
+                            <td>
+                                <button type="button" class="btn btn-info see-suggestions"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Send Gift</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-12 mt-4 div-rob d-none">
+                <h4>Rob's Wishlist</h4>
+            </div>
+
+            <div class="col-11 mt-4 div-rob d-none">
+                <table id="rob-wishlist">
+                    <thead>
+                        <tr>
+                            <th>Wishlist</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Water Sprinkler</td>
+                            <td>
+                                <button type="button" class="btn btn-success see-suggestions"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp; Wish Granted</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pots</td>
+                            <td>
+                                <button type="button" class="btn btn-info see-suggestions"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp; Send Gift</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-12 mt-4 div-john d-none">
+                <h4>It's John's birthday, send your warm wishes</h4>
+            </div>
+
+            <div class="col-8 mt-4 div-john d-none">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" id="john-search">
+                    <div class="input-group-btn">
+                      <button class="btn btn-success form-control" type="button">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+            </div>
+            
+
+            <div class="col-12 mt-4 div-elissa d-none">
+                <h4>Elissa graduated from Eskwelabs, send your warm wishes</h4>
+            </div>
+
+            
+            
+
+            <div class="col-12 mt-4 div-bash d-none">
+                <h4>Bash graduated from Eskwelabs, send your warm wishes</h4>
+            </div>
+
+            
+        </div>
+        
+        <div class="row pb-4 mt-4 d-none" id="recommendations-result">
+            <div class="col-12">
+                <h6 id="header-recommendations"></h6>
+                <hr>
+            </div>
+            <div class="row" id="wishlist-results">
+            </div>
+        </div>
+  </div>
   </div>
 
   

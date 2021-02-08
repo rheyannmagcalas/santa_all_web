@@ -2,57 +2,252 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Secret Santa</title>
+  <title>SANTA ALL</title>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  crossorigin="anonymous">
-  
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <style>
     .bg-dark {
         background-color: #164d3d !important;
+        /* background-color: #c14250 !important; */
     }
 
-    /* body{
-      font-family:courier,arial,helvetica;
+    .card-overlay {
+      background: rgba(0, 0, 0, 0.5);
     }
 
+    .categories img {
+      border: 2px solid #555;
+    }
+
+    .checked {
+      color: orange;
+    }
+
+    .social .fa {
+      padding: 5px;
+      font-size: 15px;
+      width: 40px;
+      text-align: center;
+      text-decoration: none;
+      margin: 2px 2px;
+      /* border-radius: 50%; */
+    }
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-google {
+      background: #dd4b39;
+      color: white;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .fa-youtube {
+      background: #bb0000;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    .fa-pinterest {
+      background: #cb2027;
+      color: white;
+    }
+
+    .fa-snapchat-ghost {
+      background: #fffc00;
+      color: white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    .fa-skype {
+      background: #00aff0;
+      color: white;
+    }
+
+    .fa-android {
+      background: #a4c639;
+      color: white;
+    }
+
+    .fa-dribbble {
+      background: #ea4c89;
+      color: white;
+    }
+
+    .fa-vimeo {
+      background: #45bbff;
+      color: white;
+    }
+
+    .fa-tumblr {
+      background: #2c4762;
+      color: white;
+    }
+
+    .fa-vine {
+      background: #00b489;
+      color: white;
+    }
+
+    .fa-foursquare {
+      background: #45bbff;
+      color: white;
+    }
+
+    .fa-stumbleupon {
+      background: #eb4924;
+      color: white;
+    }
+
+    .fa-flickr {
+      background: #f40083;
+      color: white;
+    }
+
+    .fa-yahoo {
+      background: #430297;
+      color: white;
+    }
+
+    .fa-soundcloud {
+      background: #ff5500;
+      color: white;
+    }
+
+    .fa-reddit {
+      background: #ff5700;
+      color: white;
+    }
+
+    .fa-rss {
+      background: #ff6600;
+      color: white;
+    }
+
+    /* .btn-success {
+      color: #164d3d !important
+    } */
+    .circle {
+        background-color:#fff;
+        border:1px solid black;    
+        height:120px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:120px;
+    }
+
+    .selected-friend{
+      /* border-bottom:1px solid #164d3d;
+      padding: 10px; */
+      background-color:#fff;
+      border:5px solid #f63f27;    
+      height:100px;
+      border-radius:50%;
+      -moz-border-radius:50%;
+      -webkit-border-radius:50%;
+      width:100;
+    }
+    body{
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+    /*
     h1 {
       font-family:courier,arial,helvetica;
       font-size: 12px !important;
+    } */
+
+    /* .card-overlay {
+      background: rgba(0, 0, 0, 0.5);
     } */
   </style>
 </head>
 <body>
   <main>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand ml-4" href="#"><img src="{% static 'images/santa_all_logo_2.png' %}" width='130' height='45' style="margin-left:25%;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <span class="navbar-text">
+          <div class='row'>
+            <div class="col-12">
+              <!-- <div class="float-right"> -->
+                {% if user.is_authenticated %}
+                  Hi {{ user.username }}
+                  <a href="/accounts/logout" class="btn btn-success btn-sm" role="button">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  </a>                    
+                {% endif %} 
+              <!-- </div> -->
+            </div>
+          </div>
+        </span>
+      </div>
+      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div> -->
+    </nav>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <img src="{% static 'logo/secret_santa.png' %}" width='60' height='30'>
+                  <img src="{% static 'images/santa_header.png' %}" width='40' height='35'>
                 </li>
             </ul>
         </div>
 
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">HOME</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Friends</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Documentation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">References</a>
+                  <a class="nav-link" href="#">DOCUMENTATION</a>
               </li>
             </ul>
         </div>
-    </nav>
-    <div class='row'>
+    </nav> -->
+    <!-- <div class='row'>
       <div class="col-12 pr-4 mt-2">
         <div class="float-right">
           {% if user.is_authenticated %}
@@ -61,21 +256,264 @@
           {% endif %} 
         </div>
       </div>
-    </div>
+    </div> -->
     
     <body>
       {% block content %}
       {% endblock %}
     </body>
   </main>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready( function () {
-      $('#table_id').DataTable();
-  } );
+      var current_row = ""
+      var selected_product_names = []
+      var current_product_names = []
+      var item_template = `<div class="col-12 mb-4">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="{% static 'images/no-image-available.png' %}" width='220' height='180'>
+                    </div>
+                    <div class="col-6">
+                        <h6 id="product-name"><a href="product_url" target="_blank">product_name</a> </h6>
+                        <h6 id="price"><span class="fa fa-star checked"></span> rating</h6>
+                        <h6 id="price"> total_sold Sold</h6>
+                        <h6 id="price"> total_rating Ratings</h6>
+                        <h6 id="price"><span class="fas fa-heart d-none"></span> shipping_sample</h6>
+                        <br>
+                        <button type="button" class="btn btn-success my-add-wishlist" id="sample-id">
+                        <span class="fa fa-plus"></span> ADD TO WISHLIST</button>
+                        <button type="button" class="btn btn-warning my-add-wishlist d-none" id="sample-select-id">
+                        SELECTED </button>
+                    </div>
+                    <div class="col-3">
+                      <h6 id="price">Pprice.00</h6>
+                    </div>
+                </div>
+            </div>`
+
+      var tbl_my_wishlist = $('#my-wishlist').DataTable({
+        "bSort" : false
+      });
+
+      var tbl_your_wishlist = $('#your-wishlist').DataTable({
+        "bSort" : false
+      });
+
+      var tbl_dan_wishlist = $('#dan-wishlist').DataTable({
+        "bSort" : false
+      });
+
+      var tbl_emer_wishlist = $('#emer-wishlist').DataTable({
+        "bSort" : false
+      });
+
+      var tbl_rob_wishlist = $('#rob-wishlist').DataTable({
+        "bSort" : false
+      });
+
+      $('#my-wishlist tbody').on( 'click', 'tr', function () {
+        current_row =tbl_my_wishlist.row( this ).index()
+        $("#header-recommendations").html("Recommendations Results for "+ tbl_my_wishlist.row( this ).data()[0])
+        $("#recommendations-result").removeClass("d-none")
+        $("#wishlist-results").html('')
+        $.get('/wishlist/search/?product-name='+tbl_my_wishlist.row( this ).data()[0], function(data, status){
+          counter = 0
+          current_product_names = []
+          data.forEach(function(item) {
+            counter = counter + 1
+            current_product_names.push(item['name'])
+            current_template = item_template.replace('product_name', item['name'])
+            current_template = current_template.replace('product_url', item['url'])
+            current_template = current_template.replace('rating', item['rating'])
+            current_template = current_template.replace('Pprice.00', "P"+item['price']+'0')
+            current_template = current_template.replace('total_sold', item['total_sold'])
+            current_template = current_template.replace('total_rating', item['total_rating'])
+            current_template = current_template.replace('sample-id', counter)
+            current_template = current_template.replace('sample-select-id', 'select-'+counter)
+
+            if(item['free_shipping'] == 'nan'){
+              current_template = current_template.replace('shipping_sample', "")
+            }else{
+              current_template = current_template.replace('shipping_sample', item['free_shipping'])
+              current_template = current_template.replace('d-none', '')
+            }
+
+            $("#wishlist-results").append(current_template)
+          });
+
+          $('.my-add-wishlist').click(function(){
+              $('#'+this.id).addClass('d-none')
+              $('#select-'+this.id).removeClass('d-none')
+              selected_product_names.push(current_product_names[this.id])
+              var temp = tbl_my_wishlist.row(current_row).data();
+              temp[2] = `<button type="button" class="btn btn-success see-suggestions"><i class="fa fa-search" aria-hidden="true"></i></button>
+              &nbsp;&nbsp;<button type="button" class="btn btn-info see-details"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>`
+              tbl_my_wishlist.row(current_row).data(temp).draw();
+          });
+        });
+      });
+
+      $("#add-wishlist-button").click(function(){
+        tbl_my_wishlist.row.add([$('#my-wishlist-input').val(), 
+        '2020-11-27', '<button type="button" class="btn btn-success see-suggestions"><i class="fa fa-search" aria-hidden="true"></i></button>' ]).draw().node();
+        $('#my-wishlist-input').val('')
+      });
+
+      $(".image-home").click(function(){
+        $("#div-home").removeClass("d-none");
+        $("#div-my-wishlist").addClass("d-none");
+        $("#div-friends-wishlist").addClass("d-none");
+      });
+
+      $(".image-wishlist").click(function(){
+        $("#div-home").addClass("d-none");
+        $("#div-my-wishlist").removeClass("d-none");
+        $("#div-friends-wishlist").addClass("d-none");
+      });
+
+      $(".image-friends-wishlist").click(function(){
+        $("#div-home").addClass("d-none");
+        $("#div-my-wishlist").addClass("d-none");
+        $("#div-friends-wishlist").removeClass("d-none");
+      });
+
+      $(".ran-kid").click(function(){
+        $(".ran-kid").addClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+        
+        $('.div-ran').removeClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+      
+      $(".dan-kid").click(function(){
+        $(".dan-kid").addClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+        
+        $('.div-dan').removeClass('d-none');
+        $('.div-ran').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+      $(".emer-kid").click(function(){
+        $(".emer-kid").addClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+
+        $('.div-emer').removeClass('d-none');
+        $('.div-ran').addClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+      $(".rob-kid").click(function(){
+        $(".rob-kid").addClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+        
+        $('.div-ran').addClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').removeClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+
+      $(".john-kid").click(function(){
+        $(".john-kid").addClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+        
+        $('.div-john').removeClass('d-none');
+        $('.div-ran').addClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+      $(".elissa-kid").click(function(){
+        $(".elissa-kid").addClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".bash-kid").removeClass("selected-friend");
+        
+        $('.div-elissa').removeClass('d-none');
+        $('.div-ran').addClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-bash').addClass('d-none');
+      });
+
+      $(".bash-kid").click(function(){
+        $(".bash-kid").addClass("selected-friend");
+        $(".dan-kid").removeClass("selected-friend");
+        $(".ran-kid").removeClass("selected-friend");
+        $(".rob-kid").removeClass("selected-friend");
+        $(".emer-kid").removeClass("selected-friend");
+        $(".john-kid").removeClass("selected-friend");
+        $(".elissa-kid").removeClass("selected-friend");
+        
+        $('.div-bash').removeClass('d-none');
+        $('.div-ran').addClass('d-none');
+        $('.div-dan').addClass('d-none');
+        $('.div-emer').addClass('d-none');
+        $('.div-rob').addClass('d-none');
+        $('.div-john').addClass('d-none');
+        $('.div-elissa').addClass('d-none');
+      });
+
+
+
+      
+  });
+
   </script>
 </body>
 </html>

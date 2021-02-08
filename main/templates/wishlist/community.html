@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row mt-4 pb-4">
+        <div class="col-12 categories">
+            <img src="{% static 'images/dashboard_banner.png' %}" width='1140' height='300'> 
+        </div> 
+        
+        <div class="col-6 mt-4 categories">
+            <img src="{% static 'images/friends_wishlist.png' %}" width='560' height='200'> 
+        </div>
+
+        <div class="col-6 mt-4 categories">
+            <img src="{% static 'images/mywishlist.png' %}" width='560' height='200'> 
+        </div> 
+    </div>
+  </div>
+
+  <div class="container-fluid" id="div-friends-wishlist">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3>MY COMMUNITY</h3>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-2">
+                <center><img src="{% static 'images/emer_kid.png' %}" width='120' height='120' style="border-radius: 50%;" class="selected-friend"></center>
+            </div>
+            <div class="col-2">
+                <center><img src="{% static 'images/dan_kid.jpg' %}" width='120' height='120' style="border-radius: 50%;"> </center>
+
+            </div>
+            <!-- <div class="col-2">
+                <img src="{% static 'images/ran_kid.png' %}" width='120' height='120' style="border-radius: 50%;"> 
+            </div> -->
+            <div class="col-2">
+                <img src="{% static 'images/rob_kid.png' %}" width='120' height='120' style="border-radius: 50%;"> 
+            </div>
+            <div class="col-2">
+                <img src="{% static 'images/elissa_kid.png' %}" width='120' height='120' style="border-radius: 50%;"> 
+            </div>
+            <div class="col-2">
+                <img src="{% static 'images/john_kid.png' %}" width='120' height='120' style="border-radius: 50%;"> 
+            </div>
+            <div class="col-2" >
+                <div class="circle"><i class="fa fa-plus" aria-hidden="true" style="margin-top:30%;font-size:55px;font-weight:30px;margin-left:32%;"></i>
+                </div>
+            </div>
+            
+            
+            <!-- <div class="col-7">
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Add To Wishlist">
+                    <div class="input-group-btn">
+                    <button class="btn btn-success form-control" type="button" id="add-wishlist-button">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- <div class="col-2">
+                <h6>Share Your Wishlist:</h6>
+            </div>
+            <div class="col-3 social">    
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div> -->
+            <div class="col-12 mt-4">
+                <h4>Emer's Wishlist</h4>
+            </div>
+
+            <div class="col-12 mt-4">
+                <table id="my-wishlist">
+                    <thead>
+                        <tr>
+                            <th>Wishlist</th>
+                            <th>Date Added</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>Kalimba</td>
+                            <td>2020-11-23 11:00:00</td>
+                            <td>
+                                <button type="button" class="btn btn-success see-suggestions"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </td>
+                        </tr> -->
+                        <tr>
+                            <td>Jogger Pants</td>
+                            <td>2020-11-23 11:00:00</td>
+                            <td>
+                                <button type="button" class="btn btn-success see-suggestions"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-info see-details"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="row pb-4 mt-4 d-none" id="recommendations-result">
+            <div class="col-12">
+                <h6 id="header-recommendations"></h6>
+                <hr>
+            </div>
+            <div class="row" id="wishlist-results">
+            </div>
+        </div>
+    </div>
+  </div>
+    
+    
+  </div>
+
+  
+{% endblock %}
+
